@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BookRentalManagementSystem_V2
@@ -14,8 +15,9 @@ namespace BookRentalManagementSystem_V2
 
 
 
-        public void CreateBook(Book book)
+        public void CreateBook()
         {
+            var book=new Book();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -100,8 +102,9 @@ namespace BookRentalManagementSystem_V2
         }
 
 
-        public void UpdateBooks(Book book)
+        public void UpdateBooks()
         {
+            var book=new Book();
 
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
@@ -136,8 +139,10 @@ namespace BookRentalManagementSystem_V2
         }
 
 
-        public void DeleteBook(int id)
+        public void DeleteBook()
         {
+
+            var id=new Book().bookId;
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 try
